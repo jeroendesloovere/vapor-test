@@ -4,10 +4,6 @@ import PackageDescription
 
 let package = Package(
     name: "test",
-    products: [
-        .library(name: "App", targets: ["App"]),
-        .executable(name: "Run", targets: ["Run"])
-    ],
     targets: [
         .target(name: "App", dependencies: ["Vapor", "LeafProvider"],
                 exclude: [
@@ -18,6 +14,10 @@ let package = Package(
             ]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App", "Testing"])
+    ],
+    products: [
+        .library(name: "App", targets: ["App"]),
+        .executable(name: "Run", targets: ["Run"])
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor.git", .upToNextMajor(from: "2.2.0")),
