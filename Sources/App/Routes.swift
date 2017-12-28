@@ -14,6 +14,8 @@ final class Routes: RouteCollection {
 
         /// GET /hello/...
         builder.resource("hello", HelloController(view))
+
+        /// GET /baby/...
         builder.resource("baby", BabyController(view))
 
         // response to requests to /info domain
